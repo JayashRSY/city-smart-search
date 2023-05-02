@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.container {
+  font-family: "Rubik", sans-serif;
+  .landing {
+    background-size: 100% !important;
+    background-repeat: no-repeat !important;
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .landing-top {
+      .landing-center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        margin-top: 7rem;
+        .city-name {
+          font-size: 3rem;
+          font-weight: bold;
+          color: white;
+          margin-bottom: 1rem;
+        }
+        .input-container {
+          .search-input {
+            border: 3px solid purple;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            padding: 0rem 1rem;
+            height: 40px;
+            width: 20rem;
+          }
+          .btn-submit {
+            border: 3px solid purple;
+            height: 45px;
+            border-top-right-radius: 50px;
+            padding: 0rem 1.5rem;
+            border-bottom-right-radius: 50px;
+            background-color: purple;
+            color: white;
+            width: 8rem;
+            cursor: pointer;
+          }
+          .city-options li {
+            font-size: 1.5rem;
+            color: white;
+            margin: 10px;
+          }
+        }
+      }
+      .weather-container {
+        position: absolute;
+        right: 20px;
+        top: 5px;
+        display: flex;
+        align-items: center;
+        .weather-icon {
+        }
+        .weather-info {
+          color: white;
+        }
+      }
+    }
+    .landing-bottom {
+      display: flex;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      height: 40px;
+      padding-top: 5px;
+      .tab-list {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 0rem 2rem;
+        .tab-item {
+          font-weight: bold;
+          font-size: 1.1rem;
+          padding: 0.5rem 2rem;
+        }
+        .tab-item:hover {
+          cursor: pointer;
+          border-bottom: 5px solid #6a0e86;
+        }
+      }
+    }
+  }
+  .data-list {
+    .data-item {
+      display: flex;
+      align-items: center;
+      padding: 0rem 1rem;
+      background-color: rgba(240, 102, 240, 0.1);
+      .data-info {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        width: 55%;
+        .data-img {
+          height: 100px;
+          width: 180px;
+          border-radius: 10px;
+          margin-right: 15px;
+        }
+        .about-container {
+          .data-name {
+            font-weight: bold;
+          }
+          .description {
+          }
+        }
+      }
+      .open-time,
+      .close-time,
+      .open-price {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 15%;
+        height: 100%;
+        .data-text {
+        }
+        .data-value {
+          font-size: 1.5rem;
+          color: purple;
+        }
+      }
+      .open-time,
+      .open-price {
+        // background-color: rgba(240, 102, 240, 0.2);
+      }
+    }
+  }
+}

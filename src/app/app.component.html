@@ -1,0 +1,107 @@
+<div class="container">
+  <div class="landing"
+    [style.background]="'url('+activeCity.backgroundUrl+')'">
+    <div class="landing-top">
+      <div class="shadow-bx"></div>
+      <div class="landing-center">
+        <h4 class="city-name">{{activeCity.name | uppercase}}</h4>
+        <div class="input-container">
+          <input id="search-input"
+            class="search-input"
+            type="text"
+            [(ngModel)]="searchTerm"
+            (ngModelChange)="filterCity()">
+          <button id="btn-submit"
+            class="btn-submit"
+            (click)="searchCity()">
+            Search
+          </button>
+          <ul *ngIf="showDropDown"
+            class="city-options">
+            <li id="places"
+              (click)="setActiveTab(activeCity.categories.places);searchTerm=activeCity.name">{{activeCity.name}} Places
+            </li>
+            <li id="hotels"
+              (click)="setActiveTab(activeCity.categories.hotels);searchTerm=activeCity.name">{{activeCity.name}} Hotels
+            </li>
+            <li id="restaurants"
+              (click)="setActiveTab(activeCity.categories.restaurants);searchTerm=activeCity.name">{{activeCity.name}}
+              Restaurants</li>
+            <li id="offices"
+              (click)="setActiveTab(activeCity.categories.offices);searchTerm=activeCity.name">{{activeCity.name}}
+              Offices</li>
+          </ul>
+
+        </div>
+      </div>
+      <div id="weather-data"
+        class="weather-container">
+        <div class="weather-icon">
+          <img [src]="activeCity.weather.icon"
+            alt="weather icon">
+        </div>
+        <div class="weather-info">
+          <div class="temperature">
+            <span>{{activeCity.weather.temp}}&#176; </span>
+            <sup>{{activeCity.weather.main}}</sup>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="landing-bottom">
+      <div class="tab-list">
+        <div class="tab-item"
+          [class.active]="activeTab === 'places'"
+          (click)="setActiveTab(activeCity.categories.places);searchTerm=activeCity.name">
+          PLACES
+        </div>
+        <div class="tab-item"
+          [class.active]="activeTab === 'hotels'"
+          (click)="setActiveTab(activeCity.categories.hotels);searchTerm=activeCity.name">
+          HOTELS
+        </div>
+        <div class="tab-item"
+          [class.active]="activeTab === 'restaurants'"
+          (click)="setActiveTab(activeCity.categories.restaurants);searchTerm=activeCity.name">
+          RESTAURANTS
+        </div>
+        <div class="tab-item"
+          [class.active]="activeTab === 'offices'"
+          (click)="setActiveTab(activeCity.categories.offices);searchTerm=activeCity.name">
+          OFFICES
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="data-list">
+    <div class="data-item"
+      *ngFor="let cityItem of activeTabData">
+      <div class="data-info">
+        <img [src]="cityItem.imageUrl"
+          alt=""
+          class="data-img">
+        <div class="about-container">
+          <h3 class="data-name"
+            id="places-list-2">{{cityItem.name}}</h3>
+          <div class="star-wrap">
+            <img src=""
+              alt="">
+          </div>
+          <p class="description">{{cityItem.desc}}</p>
+        </div>
+      </div>
+      <div class="open-time">
+        <p class="data-text">Check In</p>
+        <p class="data-value">{{cityItem.openAt}}</p>
+      </div>
+      <div class="close-time">
+        <p class="data-text">Check Out</p>
+        <p class="data-value">{{cityItem.closeAt}}</p>
+      </div>
+      <div class="open-price">
+        <p class="data-text">Entry Fees</p>
+        <p class="data-value">{{cityItem.entryFee}}</p>
+      </div>
+    </div>
+  </div>
+</div>
